@@ -13,6 +13,16 @@ double middle(double* points)
     return res/(sizeof(points)/sizeof(double));
 }
 
+double* EmulateSession()
+{
+    double points[12];
+    for(int i = 0; i < 12; ++i)
+    {
+        points[i] = rand()%6;
+    }
+    return points;
+}
+
 int main()
 {
     Student* stackStudents = new Student[3];
@@ -32,12 +42,7 @@ int main()
 
     for(int personNum = 0; personNum < 3; ++personNum)
     {
-        double points[12];
-        for(int i = 0; i < 12; ++i)
-        {
-            points[i] = rand()%6;
-        }
-        stackStudents[personNum].SetMiddle(middle(points));
+        stackStudents[personNum].SetMiddle(middle(EmulateSession()));
     }
 
     for(int i = 0; i < 3; ++i)
